@@ -61,6 +61,7 @@ function Welcome() {
     <div>
       <h2>Welcome!</h2>
       <p>These are some pattern calculators I've adapted from old Singer and Brother knitting machine patterns for 5-ply wool aka Paton's Bluebell.</p>
+      <p>These patterns have <strong>not</strong> been tested!! Use at your own risk. But if you do try them please let me know how it goes.</p>
     </div>
   );
 }

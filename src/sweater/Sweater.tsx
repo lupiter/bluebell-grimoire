@@ -2,9 +2,13 @@ import { Measure } from "../measure/Measure";
 import { ChangeEvent, useState } from "react";
 import "./sweater.css";
 import { Back } from "./back/Back";
-import { VNeckFront } from "./v_neck_front/VNeckFront";
+import { VNeckFront } from "./v_neck/VNeckFront";
 import { Keyed, Select, SelectString } from "../select/Select";
-import { LongSleeveDown, LongSleeveUp } from "./long_sleeve/LongSleeve";
+import { LongSleeveDown, LongSleeveUp } from "./sleeve/LongSleeve";
+import { VNeckMock, VNeckRib } from "./v_neck/Band";
+import { RoundNeckFront } from "./round_neck/RoundNeckFront";
+import { PoloNeckMock, PoloNeckRib, RoundNeckMock, RoundNeckRib, ScoopNeckHand } from "./round_neck/Band";
+import { ShortSleeveDown, ShortSleeveUp } from "./sleeve/ShortSleeve";
 
 enum NeckStyle {
   V = "V-neck",
@@ -14,6 +18,13 @@ enum NeckStyle {
 };
 
 const NECK_STYLES = [NeckStyle.V, NeckStyle.Round, NeckStyle.Scoop, NeckStyle.Polo];
+
+enum NeckBandStyle {
+  Mock = "Mock Rib",
+  Rib = "Ribber"
+}
+
+const NECK_BAND_STYLES = [NeckBandStyle.Mock, NeckBandStyle.Rib];
 
 enum Style {
   Cardigan = "Cardigan",
@@ -60,6 +71,7 @@ export function Sweater() {
   const [style, setStyle] = useState(Style.Pullover);
   const [neck, setNeck] = useState(NeckStyle.V);
   const [sleeve, setSleeve] = useState(SleeveStyle.LongBottomUp)
+  const [neckBand, setNeckBand] = useState(NeckBandStyle.Mock)
 
   const shelf = () => Math.max(4, Math.round(0.233333 * width - 4.2));
 
@@ -90,6 +102,7 @@ export function Sweater() {
           <SelectString label="Style" onChange={v => setStyle(v as Style)} values={STYLES} />
           <SelectString label="Neck" onChange={v => setNeck(v as NeckStyle)} values={NECK_STYLES} />
           <SelectString label="Sleeve" onChange={v => setSleeve(v as SleeveStyle)} values={SLEEVE_STYLES} />
+          <SelectString label="Neck Band" onChange={v => setNeckBand(v as NeckBandStyle)} values={NECK_BAND_STYLES} />
         </fieldset>
       </form>
 
@@ -105,8 +118,18 @@ export function Sweater() {
 
       <Back width={width} length={length} shelf={shelf()} />
       {style === Style.Pullover && neck === NeckStyle.V && <VNeckFront width={width} length={length} shelf={shelf()} />}
+      {style === Style.Pullover && <RoundNeckFront width={width} length={length} shelf={shelf()} scoop={neck === NeckStyle.Scoop} />}
       {sleeve === SleeveStyle.LongBottomUp && <LongSleeveUp width={width} length={sleeveLength} shelf={shelf()} />}
       {sleeve === SleeveStyle.LongTopDown && <LongSleeveDown width={width} length={sleeveLength} shelf={shelf()} />}
+      {sleeve === SleeveStyle.ShortBottomUp && <ShortSleeveUp width={width} shelf={shelf()} />}
+      {sleeve === SleeveStyle.ShortTopDown && <ShortSleeveDown width={width} shelf={shelf()} />}
+      {neckBand === NeckBandStyle.Mock && neck === NeckStyle.V && <VNeckMock width={width} />}
+      {neckBand === NeckBandStyle.Rib && neck === NeckStyle.V && <VNeckRib width={width} />}
+      {neckBand === NeckBandStyle.Mock && neck === NeckStyle.Round && <RoundNeckMock width={width} />}
+      {neckBand === NeckBandStyle.Rib && neck === NeckStyle.Round && <RoundNeckRib width={width} />}
+      {neckBand === NeckBandStyle.Mock && neck === NeckStyle.Polo && <PoloNeckMock width={width} />}
+      {neckBand === NeckBandStyle.Rib && neck === NeckStyle.Polo && <PoloNeckRib width={width} />}
+      {neck === NeckStyle.Scoop && <ScoopNeckHand />}
 
     </div>
   );

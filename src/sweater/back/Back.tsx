@@ -14,17 +14,17 @@ export function Back({width, length, shelf}: {width: number, length: number, she
         <>
             <h3>Back (Make 1)</h3>
             <ol>
-                <li>Cast on {castOn()} stitches.</li>
+                <li>Cast on <strong>{castOn()}</strong> stitches.</li>
                 <li>Knit welt - hem 40 rows or rib 20 rows and change tension.</li>
-                <li>Transfer to stocking stitch and knit {bodyRows()} above welt</li>
+                <li>Transfer to stocking stitch and knit <strong>{bodyRows()}</strong> above welt</li>
                 <li>Reset row counter to 000</li>
-                <li>Cast off {shelf} stitches at beinning of next 2 rows</li>
-                <li>Decrease 1 stitch each end every row {armShapeBottom()} times</li>
-                <li>Decrease 1 stitch each end every 2nd row {armShapeTop()} times</li>
-                <li>There are now {widthAfterShaping()} stitches</li>
-                <li>Knit straight to {sleeveRows()} rows</li>
-                <li>At beginning of next {shoulderRows()} rows cast off {shoulderStitches()} stitches</li>
-                <li>Cast off remaining {finalCastOff()} stitches</li>
+                <li>Cast off <strong>{shelf}</strong> stitches at beinning of next 2 rows</li>
+                <li>Decrease 1 stitch each end every row <strong>{armShapeBottom()}</strong> times</li>
+                <li>Decrease 1 stitch each end every 2nd row <strong>{armShapeTop()}</strong> times</li>
+                <li>There are now <strong>{widthAfterShaping()}</strong> stitches</li>
+                <li>Knit straight to <strong>{sleeveRows()}</strong> rows</li>
+                <li>At beginning of next <strong>{shoulderRows()}</strong> rows cast off <strong>{shoulderStitches()}</strong> stitches</li>
+                <li>Cast off remaining <strong>{finalCastOff()}</strong> stitches</li>
             </ol>
         </>
     );
