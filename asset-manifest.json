@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/bluebell-grimoire/static/css/main.39bb8a83.css",
+    "main.js": "/bluebell-grimoire/static/js/main.8edae85c.js",
+    "static/js/787.d60d0bf4.chunk.js": "/bluebell-grimoire/static/js/787.d60d0bf4.chunk.js",
+    "static/media/logo.png": "/bluebell-grimoire/static/media/logo.5a6746aa3cecd0b8bd7b.png",
+    "index.html": "/bluebell-grimoire/index.html",
+    "main.39bb8a83.css.map": "/bluebell-grimoire/static/css/main.39bb8a83.css.map",
+    "main.8edae85c.js.map": "/bluebell-grimoire/static/js/main.8edae85c.js.map",
+    "787.d60d0bf4.chunk.js.map": "/bluebell-grimoire/static/js/787.d60d0bf4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.39bb8a83.css",
+    "static/js/main.8edae85c.js"
+  ]
+}
