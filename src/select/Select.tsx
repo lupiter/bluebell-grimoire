@@ -21,7 +21,7 @@ export function Select<T extends Keyed>({ label, values, onChange, showNone = fa
   };
 
   return (
-    <label>{label}
+    <label>{label}&nbsp;
       <select onChange={onSelectChange}>
         {showNone && <option value={NONE_VALUE} key={NONE_VALUE}>None</option>}
         {values.map(value => (
@@ -42,7 +42,7 @@ export function SelectString({ label, values, onChange, showNone = false }: { la
   };
 
   return (
-    <label>{label}
+    <label>{label}&nbsp;
       <select onChange={onSelectChange}>
         {showNone && <option value={NONE_VALUE} key={NONE_VALUE}>None</option>}
         {values.map(value => (
